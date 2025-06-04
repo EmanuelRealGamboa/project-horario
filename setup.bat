@@ -4,15 +4,6 @@ setlocal EnableDelayedExpansion
 :: ==========================
 :: Configuración inicial
 :: ==========================
-set REPO_URL=https://github.com/EmanuelRealGamboa/project-horario.git
-set PROJECT_FOLDER=project-horario
-
-:: ==========================
-:: Clonar el repositorio
-:: ==========================
-echo 🚀 Clonando repositorio...
-git clone %REPO_URL%
-cd %PROJECT_FOLDER%
 
 :: ==========================
 :: Crear entorno virtual

@@ -4,16 +4,7 @@
 # Configuración inicial
 # ===========================
 
-# URL de tu repositorio (ajustado con tu usuario real)
-REPO_URL="https://github.com/EmanuelRealGamboa/project-horario.git"
-PROJECT_FOLDER="project-horario"
 
-# ===========================
-# Clonar el repositorio
-# ===========================
-echo "🚀 Clonando repositorio..."
-git clone $REPO_URL
-cd $PROJECT_FOLDER
 
 # ===========================
 # Crear entorno virtual
