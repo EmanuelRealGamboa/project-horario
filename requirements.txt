@@ -2,7 +2,7 @@
 Django==5.0.6
 
 # Django REST Framework
-djangorestframework==3.15.1
+djangorestframework==3.16.0
 
 # CORS (para permitir acceso desde el frontend)
 django-cors-headers==4.3.1
@@ -10,11 +10,25 @@ django-cors-headers==4.3.1
 # Pillow (si manejas imágenes, casi siempre es buena idea tenerlo)
 Pillow==10.3.0
 
-# Si en algún momento usas PostgreSQL (puedes dejarlo comentado si todavía no)
-# psycopg2-binary==2.9.9
-
-# (Opcional si usas JWT en el futuro)
-# djangorestframework-simplejwt==5.3.1
-
 # Asgi (manejo de ASGI que ya viene indirectamente con Django 5)
-asgiref==3.7.2
+asgiref==3.8.1
+
+# Base de datos
+mysqlclient==2.2.7
+
+# DRF + JWT + documentación
+djangorestframework-simplejwt==5.5.0
+drf-yasg==1.21.10
+
+# Utilidades
+inflection==0.5.1
+packaging==25.0
+PyJWT==2.9.0
+pytz==2025.2
+PyYAML==6.0.2
+sqlparse==0.5.3
+tzdata==2025.2
+uritemplate==4.2.0
+
+# Si usas PostgreSQL en otro entorno
+# psycopg2-binary==2.9.9
