@@ -20,8 +20,18 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('api.urls')),
+
+    # ✅ Incluye las rutas de tus apps reales
+    path('api/instituciones/', include('instituciones.urls')),
+    path('api/usuarios/', include('usuarios.urls')),
+    path('api/horarios/', include('horarios.urls')),
+    path('api/conflictos/', include('conflictos.urls')),
+    path('api/notificaciones/', include('notificaciones.urls')),
+
+    # JWT Auth
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+
+    # Swagger
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 ]
