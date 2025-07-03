@@ -1,44 +1,38 @@
 from django.db import models
 
 # ENUMS
-class RolEnum(models.TextChoices):
-    ADMIN = 'ADMIN', 'Administrador'
-    PROFESOR = 'PROFESOR', 'Profesor'
-    ALUMNO = 'ALUMNO', 'Alumno'
+class RoleEnum(models.TextChoices):
+    ADMIN = 'ADMIN', 'Administrator'
+    TEACHER = 'TEACHER', 'Teacher'
+    STUDENT = 'STUDENT', 'Student'
 
-class TipoInstitucionEnum(models.TextChoices):
-    PUBLICA = 'PUBLICA', 'Pública'
-    PRIVADA = 'PRIVADA', 'Privada'
+class InstitutionTypeEnum(models.TextChoices):
+    PUBLIC = 'PUBLIC', 'Public'
+    PRIVATE = 'PRIVATE', 'Private'
 
-class TurnoEnum(models.TextChoices):
-    MATUTINO = 'MATUTINO', 'Matutino'
-    VESPERTINO = 'VESPERTINO', 'Vespertino'
-    NOCTURNO = 'NOCTURNO', 'Nocturno'
+class ShiftEnum(models.TextChoices):
+    MORNING = 'MORNING', 'Morning'
+    AFTERNOON = 'AFTERNOON', 'Afternoon'
+    NIGHT = 'NIGHT', 'Night'
 
-class TipoSalonEnum(models.TextChoices):
-    LABORATORIO = 'LABORATORIO', 'Laboratorio'
-    AULA = 'AULA', 'Aula'
-    OTRO = 'OTRO', 'Otro'
+class RoomTypeEnum(models.TextChoices):
+    LAB = 'LAB', 'Lab'
+    CLASSROOM = 'CLASSROOM', 'Classroom'
+    OTHER = 'OTHER', 'Other'
 
-class DiaSemanaEnum(models.TextChoices):
-    LUNES = 'LUNES', 'Lunes'
-    MARTES = 'MARTES', 'Martes'
-    MIERCOLES = 'MIERCOLES', 'Miércoles'
-    JUEVES = 'JUEVES', 'Jueves'
-    VIERNES = 'VIERNES', 'Viernes'
-    SABADO = 'SABADO', 'Sábado'
-    DOMINGO = 'DOMINGO', 'Domingo'
+class DayOfWeekEnum(models.TextChoices):
+    MONDAY = 'MONDAY', 'Monday'
+    TUESDAY = 'TUESDAY', 'Tuesday'
+    WEDNESDAY = 'WEDNESDAY', 'Wednesday'
+    THURSDAY = 'THURSDAY', 'Thursday'
+    FRIDAY = 'FRIDAY', 'Friday'
+    SATURDAY = 'SATURDAY', 'Saturday'
+    SUNDAY = 'SUNDAY', 'Sunday'
 
-
-
-class TipoConflictoEnum(models.TextChoices):
-    HORARIO = 'HORARIO', 'Horario'
-    PROFESOR = 'PROFESOR', 'Profesor'
-    SALON = 'SALON', 'Salón'
-
-
-
-
+class ConflictTypeEnum(models.TextChoices):
+    SCHEDULE = 'SCHEDULE', 'Schedule'
+    TEACHER = 'TEACHER', 'Teacher'
+    ROOM = 'ROOM', 'Room'
 
 
 

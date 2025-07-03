@@ -12,7 +12,7 @@ schema_view = get_schema_view(
     openapi.Info(
         title="School Schedule API",
         default_version='v1',
-        description="API para el sistema de horarios escolares",
+        description="API for the school schedule management system",
     ),
     public=True,
     permission_classes=(permissions.AllowAny,),
@@ -21,12 +21,12 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    # ✅ Incluye las rutas de tus apps reales
-    path('api/instituciones/', include('instituciones.urls')),
-    path('api/usuarios/', include('usuarios.urls')),
-    path('api/horarios/', include('horarios.urls')),
-    path('api/conflictos/', include('conflictos.urls')),
-    path('api/notificaciones/', include('notificaciones.urls')),
+    # ✅ Include routes for all your actual apps (in English)
+    path('api/institutions/', include('institutions.urls')),
+    path('api/users/', include('users.urls')),
+    path('api/schedules/', include('schedules.urls')),
+    path('api/conflicts/', include('conflicts.urls')),
+    path('api/notifications/', include('notifications.urls')),
 
     # JWT Auth
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
