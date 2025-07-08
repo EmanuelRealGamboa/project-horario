@@ -1,6 +1,5 @@
 from django.db import models
 
-# ENUMS
 class RoleEnum(models.TextChoices):
     ADMIN = 'ADMIN', 'Administrator'
     TEACHER = 'TEACHER', 'Teacher'

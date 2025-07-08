@@ -17,7 +17,8 @@ class Group(models.Model):
     name = models.CharField(max_length=50)
     institution = models.ForeignKey(Institution, on_delete=models.CASCADE)
     grade = models.IntegerField()
-    room = models.ForeignKey('schedules.Room', on_delete=models.SET_NULL, null=True, blank=True)
+    room_name = models.CharField(max_length=100, blank=True, null=True)
+
     shift = models.CharField(max_length=15, choices=ShiftEnum.choices, default=ShiftEnum.MORNING)
 
     def __str__(self):

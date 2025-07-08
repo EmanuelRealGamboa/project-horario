@@ -6,9 +6,9 @@ from institutions.serializers import InstitutionSerializer, GroupSerializer
 class InstitutionViewSet(viewsets.ModelViewSet):
     queryset = Institution.objects.all()
     serializer_class = InstitutionSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]  
 
 class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]  

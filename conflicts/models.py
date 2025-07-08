@@ -1,5 +1,5 @@
 from django.db import models
-from api.enums import ConflictTypeEnum  # también cambia el nombre del Enum si puedes
+from api.enums import ConflictTypeEnum  
 
 class ScheduleConflict(models.Model):
     type = models.CharField(max_length=10, choices=ConflictTypeEnum.choices)

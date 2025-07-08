@@ -6,4 +6,4 @@ from conflicts.serializers import ScheduleConflictSerializer
 class ScheduleConflictViewSet(viewsets.ModelViewSet):
     queryset = ScheduleConflict.objects.all()
     serializer_class = ScheduleConflictSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated] 

@@ -1,21 +1,64 @@
 from rest_framework import serializers
-from .models import User, Teacher
+from users.models import User
+from api.enums import RoleEnum
+from rest_framework import serializers
+from users.models import User
 
-class UserSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(write_only=True, required=True)
-
+class RegisterStudentSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'password', 'role', 'institution', 'created_at']
+        fields = ['username', 'email', 'password_hash', 'institution_name']
+        extra_kwargs = {
+            'password_hash': {'write_only': True}
+        }
 
     def create(self, validated_data):
-        password = validated_data.pop('password')
-        user = User(**validated_data)
-        user.password_hash = password  # Solo si no usas AbstractUser
+        user = User(
+            username=validated_data['username'],
+            email=validated_data['email'],
+            institution_name=validated_data.get('institution_name'),
+            role=RoleEnum.STUDENT
+        )
+        user.set_password(validated_data['password_hash'])
         user.save()
         return user
 
-class TeacherSerializer(serializers.ModelSerializer):
+class LoginSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    password = serializers.CharField(write_only=True)
+
+    def validate(self, data):
+        try:
+            user = User.objects.get(email=data['email'])
+        except User.DoesNotExist:
+            raise serializers.ValidationError("Usuario no encontrado.")
+
+        if not user.check_password(data['password']):
+            raise serializers.ValidationError("Contraseña incorrecta.")
+
+        return {
+            "username": user.username,
+            "email": user.email,
+            "role": user.role,
+            "institution_name": user.institution_name
+        }
+    
+
+class RegisterTeacherSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Teacher
-        fields = '__all__'
+        model = User
+        fields = ['username', 'email', 'password_hash', 'institution_name']
+        extra_kwargs = {
+            'password_hash': {'write_only': True}
+        }
+
+    def create(self, validated_data):
+        user = User(
+            username=validated_data['username'],
+            email=validated_data['email'],
+            institution_name=validated_data.get('institution_name'),
+            role=RoleEnum.TEACHER
+        )
+        user.set_password(validated_data['password_hash'])
+        user.save()
+        return user

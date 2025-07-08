@@ -9,6 +9,5 @@ class InstitutionAdmin(admin.ModelAdmin):
 
 @admin.register(Group)
 class GroupAdmin(admin.ModelAdmin):
-    list_display = ('name', 'grade', 'institution', 'room')
-    search_fields = ('name',)
+    list_display = ('name', 'grade', 'institution')  
     list_filter = ('grade', 'institution')
